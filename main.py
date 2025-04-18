@@ -56,11 +56,9 @@ def alternateMinMax(arr):
 
     return result
 
+# Test cases
+
 print(alternateMinMax([13, 7, 8, 3, 2, 10, 15, -1]))
-
-
 print(alternateMinMax([-5, -12, -1, 7, 14, -7, 3, 6]))
-
-
 print(alternateMinMax([3, 6, 9, -10, -5, -2, 0, 8]))
 
