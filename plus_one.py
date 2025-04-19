@@ -27,6 +27,16 @@
 
 
 def plusOne(digits):
+    # constraints validation
+    if not (1 <= len(digits) <= 100):
+        raise ValueError("The length of the digits array must be between 1 and 100.")
+    if not all(isinstance(d, int) and 0 <= d <= 9 for d in digits):
+        raise ValueError("The digits in the array must be integers between 0 and 9.")
+    for d in digits:
+        if isinstance(d, int) and d != 0 and d < 10:
+            continue
+        raise ValueError("digits does not contain any leading 0's.")
+    
     #  Determine the length of the array
     n = len(digits)
     # Iterate through the array from the last element to the first
@@ -45,12 +55,18 @@ def plusOne(digits):
 
 
 # --------------------------------------Test cases----------------------------------------
-
-print(plusOne([1, 2, 3]))      
-print(plusOne([4, 3, 2, 1])) 
-print(plusOne([9]))      
-print(plusOne([1, 2, 7]))     
+# print(plusOne([0, 012, 2])) edge case for leading zero 
 print(plusOne([1, 9, 9])) 
+print(plusOne([])) 
+print(plusOne([1, 2, 3, 100])) 
+print(plusOne([1, 2, 7]))   
+print(plusOne([1234])) 
+print(plusOne([1, 2, 3]))      
+print(plusOne([4, 3, 2, 10])) 
+
+print(plusOne([4, 3, 2, 7])) 
+print(plusOne([10, 10, 10, 10])) 
+print(plusOne([9]))      
 print(plusOne([9, 9, 9])) 
 print(plusOne([0]))     
 
